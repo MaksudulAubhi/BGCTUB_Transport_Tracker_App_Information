@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Information App</string>
+    <string name="app_main_name">BGCTUB Transport Tracking App</string>
+    <string name="signInActivityTitle">Information App: Sign In</string>
+
+
+    <string name="off_internet_message">Please, turn on your phone\'s internet connection.</string>
+    <string name="notification_text">Please, keep on your phone\'s internet connection. Click here for information.</string>
+    <string name="signIn_signup_req_text">Important: Don\'t have an account? Please contact with BGCTUB Transport Tracking App authority to Sign up.</string>
+    <string name="resend_ver_email_message_req">Dear user, your email is not verified. Please choose confirm button to send email with verification link.</string>
+    <string name="resend_ver_email_message_success">Sent email successfully. Please, check your email to verify your account and sign in. We sent an email with verification link.</string>
+    <string name="title_activity_app_main">AppMainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="exit_menu_text">Exit</string>
+    <string name="logout_menu_text">Logout</string>
+    <string name="reload_menu_text">Reload</string>
+    <string name="menu_driver">Driver App Users</string>
+    <string name="menu_student">Student App Users</string>
+    <string name="menu_authority">Authority App Users</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="menu_driver_reports">Driver App Reports</string>
+    <string name="menu_student_reports">Student App Reports</string>
+    <string name="menu_authority_reports">Authority App Reports</string>
+    <string name="driverInfoActivityTitle">Driver Information</string>
+    <string name="studentInfoDetailsActivityTitle">Student Information</string>
+    <string name="authInfoDetailsActivityTitle">Authority Information</string>
+
+
+
+    <string name="sign_in_help_text">Enter your account email and password to sign in. If you are a new user,
+        you will be given the opportunity to verify your account.</string>
+    <string name="homeHelpText">You can see the total number of app users from here.</string>
+    <string name="internet_message_help">Please, keep on your phone\'s internet connection.</string>
+    <string name="user_list_help">ex: To see the driver app users list choose \'Driver App Users\' option from navigation bar. Click information summary to see user details information.</string>
+    <string name="report_list_help">ex: To see the driver app reports list choose \'Driver App Reports\' option from navigation bar. Click information summary to see details information.</string>
+    <string name="helpActivityTitle">Help</string>
+    <string name="title_report_info">Report Information</string>
+
+</resources>

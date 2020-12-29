@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.bgctub_transport_tracker_app_information">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BGCTUB_Transport_Tracker_App_Information">
+        <activity android:name=".DriverReportInfoActivity"
+            android:label="@string/title_report_info"
+            android:parentActivityName=".AppMainActivity"/>
+        <activity
+            android:name=".StudentReportInfoActivity"
+            android:label="@string/title_report_info"
+            android:parentActivityName=".AppMainActivity" />
+        <activity
+            android:name=".AuthorityReportInfoActivity"
+            android:label="@string/title_report_info"
+            android:parentActivityName=".AppMainActivity" />
+        <activity
+            android:name=".AuthorityInfoDetailsActivity"
+            android:label="@string/authInfoDetailsActivityTitle"
+            android:parentActivityName=".AppMainActivity" />
+        <activity
+            android:name=".StudentInfoDetailsActivity"
+            android:label="@string/studentInfoDetailsActivityTitle"
+            android:parentActivityName=".AppMainActivity" />
+        <activity
+            android:name=".DriverInfoDetailsActivity"
+            android:label="@string/driverInfoActivityTitle"
+            android:parentActivityName=".AppMainActivity" />
+        <activity
+            android:name=".AppMainActivity"
+            android:label="@string/title_activity_app_main"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.BGCTUB_Transport_Tracker_App_Information.NoActionBar" />
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".SignInActivity"
+            android:label="@string/helpActivityTitle"/>
+        <activity
+            android:name=".SignInActivity"
+            android:label="@string/signInActivityTitle"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".services.BuildNotificationService"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

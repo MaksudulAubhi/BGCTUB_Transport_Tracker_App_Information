@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item android:title="General">
+        <menu>
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/ic_action_home"
+                    android:title="@string/menu_home" />
+            </group>
+        </menu>
+    </item>
+    <item android:title="Users"
+        android:icon="@drawable/ic_action_signin">
+        <menu>
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_driver_users"
+                    android:title="@string/menu_driver"
+                    android:icon="@drawable/ic_action_directions_bus"/>
+                <item
+                    android:id="@+id/nav_student_users"
+                    android:title="@string/menu_student"
+                    android:icon="@drawable/ic_action_location"/>
+                <item
+                    android:id="@+id/nav_authority_users"
+                    android:title="@string/menu_authority"
+                    android:icon="@drawable/ic_action_profile"/>
+
+            </group>
+        </menu>
+    </item>
+    <item android:title="Reports"
+       >
+        <menu>
+
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_driver_report"
+                    android:title="@string/menu_driver_reports"
+                    android:icon="@drawable/ic_action_directions_bus"/>
+                <item
+                    android:id="@+id/nav_student_report"
+                    android:title="@string/menu_student_reports"
+                    android:icon="@drawable/ic_action_location"/>
+                <item
+                    android:id="@+id/nav_authority_report"
+                    android:title="@string/menu_authority_reports"
+                    android:icon="@drawable/ic_action_profile"/>
+
+            </group>
+        </menu>
+    </item>
+    <item android:title="Others">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_help"
+                    android:icon="@drawable/ic_action_help"
+                    android:title="@string/menu_help" />
+
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_action_about"
+                    android:title="@string/menu_about" />
+            </group>
+        </menu>
+    </item>
+</menu>

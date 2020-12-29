@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_driver_users"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.driver.DriverUsersFragment"
+        android:label="@string/menu_driver"
+        tools:layout="@layout/driver_users_fragment" />
+    <fragment
+        android:id="@+id/nav_student_users"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.student.StudentUsersFragment"
+        android:label="@string/menu_student_reports"
+        tools:layout="@layout/student_users_fragment" />
+    <fragment
+        android:id="@+id/nav_authority_users"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.authority.AuthorityUsersFragment"
+        android:label="@string/menu_authority_reports"
+        tools:layout="@layout/authority_users_fragment" />
+
+    <fragment
+        android:id="@+id/nav_driver_report"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.driver.DriverReportFragment"
+        android:label="@string/menu_driver_reports"
+        tools:layout="@layout/driver_report_fragment" />
+
+    <fragment
+        android:id="@+id/nav_student_report"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.student.StudentReportFragment"
+        android:label="@string/menu_student_reports"
+        tools:layout="@layout/student_report_fragment" />
+
+    <fragment
+        android:id="@+id/nav_authority_report"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.authority.AuthorityReportFragment"
+        android:label="@string/menu_authority_reports"
+        tools:layout="@layout/authority_report_fragment" />
+
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.help.HelpFragment"
+        android:label="@string/menu_help"
+        tools:layout="@layout/help_fragment" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.example.bgctub_transport_tracker_app_information.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/about_fragment" />
+
+
+
+</navigation>
