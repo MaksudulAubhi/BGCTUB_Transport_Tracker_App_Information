@@ -104,6 +104,8 @@ public class StudentReportInfoActivity extends AppCompatActivity implements View
 
         if (v == copyAllReportInfoTextView) {
 
+            //copy report information to clipboard**
+
             String time = reportTimeTextView.getText().toString().trim();
             String title = reportTitleTextView.getText().toString().trim();
             String information = reportInfoTextView.getText().toString().trim();
@@ -118,7 +120,8 @@ public class StudentReportInfoActivity extends AppCompatActivity implements View
                     + "Phone Configuration:\n" + phone_conf + "\n\n"
                     + "User Contact:\n" + user_contact;
 
-            //copy driver contact number to clipboard**
+            //copy report information to clipboard**
+
             ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("Student Report Information", allInformation);
             clipboardManager.setPrimaryClip(clipData);

@@ -21,6 +21,7 @@ import com.example.bgctub_transport_tracker_app_information.DriverInfoDetailsAct
 import com.example.bgctub_transport_tracker_app_information.R;
 import com.example.bgctub_transport_tracker_app_information.StudentInfoDetailsActivity;
 import com.example.bgctub_transport_tracker_app_information.adapter.CustomList;
+import com.example.bgctub_transport_tracker_app_information.data_secure.DataSecure;
 import com.example.bgctub_transport_tracker_app_information.ui.driver.DriverUsersViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,6 +46,7 @@ public class StudentUsersFragment extends Fragment implements AdapterView.OnItem
     private DatabaseReference studentListDatabaseRef;
     private long totalStudentUsers = 0;
     private TextView studentUsersCountTextView;
+    private DataSecure dataSecure;
 
     public static StudentUsersFragment newInstance() {
         return new StudentUsersFragment();
@@ -56,6 +58,10 @@ public class StudentUsersFragment extends Fragment implements AdapterView.OnItem
         View root= inflater.inflate(R.layout.student_users_fragment, container, false);
 
         studentUsersCountTextView=root.findViewById(R.id.student_users_count_textView);
+
+        //for encoding and decoding
+        dataSecure=new DataSecure();
+
         //database ref and others**
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
@@ -91,7 +97,7 @@ public class StudentUsersFragment extends Fragment implements AdapterView.OnItem
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
-                    //count total reportID
+                    //count total userID
                     totalStudentUsers = snapshot.getChildrenCount();
 
                     //get all id if available**
@@ -102,9 +108,9 @@ public class StudentUsersFragment extends Fragment implements AdapterView.OnItem
                         userId = userIdSnapShot.getKey();
 
                         try {
-                            String student_id = snapshot.child(userId).child("student_information").child("id").getValue().toString();
-                            String student_name = snapshot.child(userId).child("student_information").child("name").getValue().toString();
-                            String student_department = snapshot.child(userId).child("student_information").child("department").getValue().toString();
+                            String student_id = dataSecure.dataDecode(snapshot.child(userId).child("student_information").child("id").getValue().toString());
+                            String student_name = dataSecure.dataDecode(snapshot.child(userId).child("student_information").child("name").getValue().toString());
+                            String student_department = dataSecure.dataDecode(snapshot.child(userId).child("student_information").child("department").getValue().toString());
 
 
                             //add data to list**

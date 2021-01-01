@@ -116,7 +116,7 @@ public class AuthorityReportInfoActivity extends AppCompatActivity implements Vi
                     + "Phone Configuration:\n" + phone_conf + "\n\n"
                     + "User Contact:\n" + user_contact;
 
-            //copy driver contact number to clipboard**
+            //copy report's information to clipboard**
             ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("Authority Report Information", allInformation);
             clipboardManager.setPrimaryClip(clipData);

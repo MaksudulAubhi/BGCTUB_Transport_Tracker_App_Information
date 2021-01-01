@@ -21,6 +21,7 @@ import com.example.bgctub_transport_tracker_app_information.AuthorityInfoDetails
 import com.example.bgctub_transport_tracker_app_information.R;
 import com.example.bgctub_transport_tracker_app_information.StudentInfoDetailsActivity;
 import com.example.bgctub_transport_tracker_app_information.adapter.CustomList;
+import com.example.bgctub_transport_tracker_app_information.data_secure.DataSecure;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,6 +45,8 @@ public class AuthorityUsersFragment extends Fragment implements AdapterView.OnIt
     private DatabaseReference authorityListDatabaseRef;
     private long totalAuthorityUsers = 0;
     private TextView authorityUsersCountTextView;
+    private DataSecure dataSecure;
+
 
     public static AuthorityUsersFragment newInstance() {
         return new AuthorityUsersFragment();
@@ -54,6 +57,9 @@ public class AuthorityUsersFragment extends Fragment implements AdapterView.OnIt
                              @Nullable Bundle savedInstanceState) {
         View root= inflater.inflate(R.layout.authority_users_fragment, container, false);
         authorityUsersCountTextView=root.findViewById(R.id.authority_users_count_textView);
+
+        //for encoding and decoding
+        dataSecure=new DataSecure();
 
         //database ref and others**
         mAuth = FirebaseAuth.getInstance();
@@ -90,7 +96,7 @@ public class AuthorityUsersFragment extends Fragment implements AdapterView.OnIt
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
-                    //count total reportID
+                    //count total userID
                     totalAuthorityUsers = snapshot.getChildrenCount();
 
                     //get all id if available**
@@ -101,9 +107,9 @@ public class AuthorityUsersFragment extends Fragment implements AdapterView.OnIt
                         userId = userIdSnapShot.getKey();
 
                         try {
-                            String name = snapshot.child(userId).child("profile").child("name").getValue().toString();
-                            String office_no = snapshot.child(userId).child("profile").child("office_no").getValue().toString();
-                            String post = snapshot.child(userId).child("profile").child("post").getValue().toString();
+                            String name = dataSecure.dataDecode(snapshot.child(userId).child("profile").child("name").getValue().toString());
+                            String office_no = dataSecure.dataDecode(snapshot.child(userId).child("profile").child("office_no").getValue().toString());
+                            String post = dataSecure.dataDecode(snapshot.child(userId).child("profile").child("post").getValue().toString());
 
 
                             //add data to list**

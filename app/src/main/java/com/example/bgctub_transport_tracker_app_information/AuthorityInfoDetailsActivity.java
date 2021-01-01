@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bgctub_transport_tracker_app_information.data_secure.DataSecure;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,7 @@ public class AuthorityInfoDetailsActivity extends AppCompatActivity implements V
     private FirebaseAuth mAuth;
     private DatabaseReference authorityInfoDatabaseRef;
     private FirebaseUser mUser;
+    private DataSecure dataSecure;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,9 @@ public class AuthorityInfoDetailsActivity extends AppCompatActivity implements V
 
         //get userId from authority users fragment
         userId=getIntent().getStringExtra("userId");
+
+        //for encoding and decoding
+        dataSecure=new DataSecure();
 
         nameTextView=findViewById(R.id.authority_name_textview);
         genderTextView=findViewById(R.id.authority_gender_textview);
@@ -72,12 +77,12 @@ public class AuthorityInfoDetailsActivity extends AppCompatActivity implements V
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try {
-                    String name = snapshot.child("name").getValue().toString();
-                    String gender = snapshot.child("gender").getValue().toString();
-                    String email = snapshot.child("email").getValue().toString();
-                    String contact=snapshot.child("contact").getValue().toString();
-                    String office_no=snapshot.child("office_no").getValue().toString();
-                    String post=snapshot.child("post").getValue().toString();
+                    String name = dataSecure.dataDecode(snapshot.child("name").getValue().toString());
+                    String gender = dataSecure.dataDecode(snapshot.child("gender").getValue().toString());
+                    String email = dataSecure.dataDecode(snapshot.child("email").getValue().toString());
+                    String contact=dataSecure.dataDecode(snapshot.child("contact").getValue().toString());
+                    String office_no=dataSecure.dataDecode(snapshot.child("office_no").getValue().toString());
+                    String post=dataSecure.dataDecode(snapshot.child("post").getValue().toString());
 
                     nameTextView.setText(name);
                     genderTextView.setText(gender);
@@ -106,7 +111,7 @@ public class AuthorityInfoDetailsActivity extends AppCompatActivity implements V
         if(v==copyEmailTextView){
             String email= emailTextView.getText().toString().trim();
             if(email!=null){
-                //copy driver contact number to clipboard**
+                //copy driver contact email to clipboard**
                 ClipboardManager clipboardManager=(ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clipData = ClipData.newPlainText("Authority Contact",email);
                 clipboardManager.setPrimaryClip(clipData);
@@ -126,6 +131,7 @@ public class AuthorityInfoDetailsActivity extends AppCompatActivity implements V
         }
 
         if(v==copyAllUsersInfoTextView){
+            //copy user's all information to clipboard**
             String name = nameTextView.getText().toString().trim() ;
             String gender = genderTextView.getText().toString().trim();
             String email = emailTextView.getText().toString().trim();
@@ -141,7 +147,7 @@ public class AuthorityInfoDetailsActivity extends AppCompatActivity implements V
                     + "Office Number:\n" + office_no + "\n\n"
                     + "Job Post:\n" + post;
 
-            //copy driver contact number to clipboard**
+            //copy information to clipboard**
             ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clipData = ClipData.newPlainText("Authority Information", allInformation);
             clipboardManager.setPrimaryClip(clipData);
