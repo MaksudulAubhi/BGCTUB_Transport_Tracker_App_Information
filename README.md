@@ -1,4 +1,4 @@
-## BGCTUB Transport Tracking App Information App 
+## BGCTUB Transport Tracking App Information App (Final Project) 
 
 ## Main Project: BGC Trust University Transport Tracking App<br>
 Project Link: https://github.com/MaksudulAubhi?tab=projects
